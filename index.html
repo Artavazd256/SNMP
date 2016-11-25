@@ -22,7 +22,6 @@
                 drawNetworkTopology.switchList.push(sw);
             }
         });
-        console.log(drawNetworkTopology.switchList);
 
         $.post( "data.php", { action: "link" }, function( data ) {
             data = JSON.parse(data);
@@ -34,7 +33,6 @@
                 drawNetworkTopology.netList.push(l);
             }
         });
-        console.log(drawNetworkTopology.netList);
         ////    drawNetworkTopology.netList = [
         ////    {fromSwitch: "switch1", toSwitch: "switch2", toPortNumber: 5, fromPortNumber:12, lineSize: 4},
         ////    {fromSwitch: "switch2", toSwitch: "switch3", toPortNumber: 9, fromPortNumber:7, lineSize: 23}
