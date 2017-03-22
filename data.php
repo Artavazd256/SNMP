@@ -3,8 +3,8 @@
 function getInterfaces($devID, $dbh)
 {
     $interfaces = array(); 
-    foreach($dbh->query("SELECT * FROM `interfaces` WHERE `device_id` = $devID ") as $rowInterface) {
-        $macDB = $dbh->query("SELECT * FROM `MAC` WHERE `interface_id` = " . $rowInterface['id']);
+    foreach($dbh->query("SELECT * FROM `tb_interfaces` WHERE `device_id` = $devID ") as $rowInterface) {
+        $macDB = $dbh->query("SELECT * FROM `tb_mac` WHERE `interface_id` = " . $rowInterface['id']);
         if( $macDB->rowCount() > 0) {
             foreach($macDB as $rowMAC) {
                 $interfaces[] = array_merge($rowInterface, $rowMAC);
@@ -167,8 +167,8 @@ function createDevices($data)
 }
 	try {
 		$devices = array();
-		$dbh = new PDO('mysql:host=localhost;dbname=SNMP', 'root', 'AvaG');
-		foreach($dbh->query('SELECT * FROM `devices`') as $row) {
+		$dbh = new PDO('mysql:host=localhost;dbname=SNMP', 'root', 'toor');
+		foreach($dbh->query('SELECT * FROM `tb_devices`') as $row) {
 			$devices[] = $row;
 		}
         foreach($devices as $index => $row ) {
